@@ -6,4 +6,8 @@ pipeline {
             steps {}     
            }
            }
+           stage('Test1') {
+            steps {}     
+           }
+           
            }
