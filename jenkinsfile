@@ -2,12 +2,21 @@ pipeline {
     agent any
 
     stages {
-        stage('Test') {
-            steps {}     
+        stage('Build') {
+            steps 
+              {
+                echo 'Add step to build'
+              }     
            }
+           stage('Performance Test'){
+            steps
+              {
+             echo 'Execution of Performance Test'
+                          bat '''D:
+                          cd D:\\Jmeter\\apache-jmeter-5.5\\apache-jmeter-5.5\\bin
+                          jmeter -n -t D:\\Jmeter\\apache-jmeter-5.5\\apache-jmeter-5.5\\bin\\JpetStroreDemo2.jmx -l 
+                          D:\\Jmeter\\apache-jmeter-5.5\\apache-jmeter-5.5\\bin\\JpetStroreDemo2.jtl'''
+              }     
            }
-           stage('Test1') {
-            steps {}     
-           }
-           
-           }
+       } 
+ }
